@@ -1,0 +1,318 @@
+/* ==========================================================
+   1. CSS Variables & Theme Configuration (Dark Mode Support)
+   ========================================================== */
+:root {
+  --bg-color: #f8f9fa;
+  --surface-color: #ffffff;
+  --text-primary: #1a1d20;
+  --text-secondary: #50575e;
+  --primary-color: #0d6efd;
+  --primary-hover: #0b5ed7;
+  --border-color: #ced4da;
+  --focus-ring: #86b7fe;
+  
+  /* Alert Colors */
+  --alert-bg: #d1e7dd;
+  --alert-text: #0f5132;
+  --alert-border: #badbcc;
+
+  /* Modal Overlay */
+  --modal-overlay: rgba(0, 0, 0, 0.6);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #121212;
+    --surface-color: #1e1e1e;
+    --text-primary: #f8f9fa;
+    --text-secondary: #adb5bd;
+    --primary-color: #3d8bfd;
+    --primary-hover: #0d6efd;
+    --border-color: #495057;
+    --focus-ring: #0d6efd;
+
+    /* Alert Colors (Dark Mode) */
+    --alert-bg: #032830;
+    --alert-text: #6ea8fe;
+    --alert-border: #084298;
+
+    /* Modal Overlay */
+    --modal-overlay: rgba(0, 0, 0, 0.8);
+  }
+}
+
+/* ==========================================================
+   2. Base Styles & Accessibility Reset
+   ========================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.6;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Focus indicator for High Accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* ==========================================================
+   3. Header, Navigation & Footer
+   ========================================================== */
+header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+nav a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a:hover, nav a:focus {
+  text-decoration: underline;
+}
+
+footer {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* ==========================================================
+   4. Layout Grid & Responsive Breakpoints
+   ========================================================== */
+.posts-grid,
+.cards-container {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile Default: 1 column */
+  gap: 1.5rem;
+}
+
+/* Tablet Screens (2 Columns) */
+@media (min-width: 768px) {
+  .posts-grid,
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop Screens (3 Columns) */
+@media (min-width: 1024px) {
+  .posts-grid,
+  .cards-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+article {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+/* ==========================================================
+   5. Form Elements & Styling
+   ========================================================== */
+.form-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: var(--surface-color);
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.required {
+  color: #dc3545;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--surface-color);
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+fieldset {
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+legend {
+  font-weight: 600;
+  padding: 0 0.5rem;
+}
+
+.choice-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.choice-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+button,
+.btn-primary,
+.submit-btn {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+button:hover,
+.btn-primary:hover,
+.submit-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+/* ==========================================================
+   6. Alert Component
+   ========================================================== */
+.alert {
+  padding: 1rem 1.25rem;
+  border-radius: 6px;
+  border: 1px solid var(--alert-border);
+  background-color: var(--alert-bg);
+  color: var(--alert-text);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+/* ==========================================================
+   7. CSS-Only Modal Window
+   ========================================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--modal-overlay);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1000;
+}
+
+.modal-overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-card {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+/* ==========================================================
+   8. Tables
+   ========================================================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th, td {
+  border: 1px solid var(--border-color);
+  padding: 0.75rem;
+  text-align: left;
+}
+
+th {
+  background-color: var(--surface-color);
+}
