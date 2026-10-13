@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>First Habbda ever</title>
+    <link rel="stylesheet" href="css/stylesheet.css" />
+  </head>
+  <body>
+    <header>
+      <h1>My Blog</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact us</a>
+      </nav>
+    </header>
+    <main>
+          <div class="alert" role="status">
+            <strong>Welcome!</strong> Check out our latest posts below or get in touch with us.
+          </div>
+
+      <section>
+        <h2>Latest Posts</h2>
+        <!-- Grid configured for Responsive Breakpoints: 1 col (mobile), 2 cols (tablet), 3 cols (desktop) -->
+        <div class="posts-grid">
+          <article>
+            <h3>Learning HTML</h3>
+            <p>HTML is the foundation of every website.</p>
+          </article>
+
+          <article>
+            <h3>Why CSS Matters</h3>
+            <p>CSS makes pages look great and responsive across all screen sizes.</p>
+          </article>
+
+          <article>
+            <h3>Accessibility & Usability</h3>
+            <p>Ensuring everyone can access and interact with web content effortlessly.</p>
+          </article>
+        </div>
+      </section>
+
+        <section style="margin-top: 2rem;">
+          <h2>Interactive Features</h2>
+          <a href="#modal-info" class="btn-primary">Read Site Rules (Modal)</a>
+        </section>
+
+
+        <div id="modal-info" class="modal-overlay" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+          <div class="modal-card">
+            <a href="#" class="modal-close" aria-label="Close modal">&times;</a>
+            <h3 id="modal-title">Site Guidelines</h3>
+            <p style="margin-top: 1rem;">
+            This modal window is completely built using CSS (:target selector) without any JavaScript lines.
+            </p>
+          </div>
+        </div>
+
+
+
+
+
+    </main>
+    <footer>
+      <p>&copy; 2026 My Blog</p>
+    </footer>
+  </body>
+</html>
